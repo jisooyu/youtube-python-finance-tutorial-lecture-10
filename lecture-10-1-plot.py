@@ -14,7 +14,7 @@ def fetch_stock_data(tickers, start_date, end_date):
         조정종가 DataFrame
     """
     try:
-        data = yf.download(tickers, start=start_date, end=end_date)["Adj Close"]
+        data = yf.download(tickers, start=start_date, end=end_date)["Close"]
         return data.dropna(axis=0, how="any")
     except Exception as e:
         print(f"Failed to fetch the data: {e}")
